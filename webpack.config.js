@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRootPlugin = require('html-webpack-react-root-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -7,9 +9,9 @@ module.exports = {
     'index.tsx'
   ],
   output: {
+    path: path.resolve('dist'),
     filename: 'app.js',
-    publicPath: 'dist',
-    path: path.resolve('dist')
+    publicPath: '/'
   },
   devServer: {
     port: 3000,
@@ -29,4 +31,5 @@ module.exports = {
       }
     ]
   },
+  plugins: [new HtmlWebpackPlugin(), new ReactRootPlugin()]
 };
