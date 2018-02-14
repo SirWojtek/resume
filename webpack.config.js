@@ -8,6 +8,7 @@ module.exports = {
   ],
   output: {
     filename: 'app.js',
+    publicPath: 'dist',
     path: path.resolve('dist')
   },
   devServer: {
@@ -16,12 +17,16 @@ module.exports = {
     inline: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js'],
     modules: ['src', 'node_modules'],
   },
   module: {
     loaders: [
-      { test: /\.tsx?$/, loaders: ['babel', 'ts-loader'] }
+      {
+        test: /\.tsx?$/,
+        loaders: ['babel-loader', 'ts-loader'],
+        include: path.resolve('src')
+      }
     ]
   },
 };
