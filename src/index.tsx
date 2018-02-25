@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+//import 'styles.scss'
+
 const App = () => {
   return (
-    <div>
+    <div className="test">
       <p>Hello world!</p>
     </div>
   );
