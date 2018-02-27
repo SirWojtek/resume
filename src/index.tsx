@@ -1,16 +1,15 @@
+import { render } from 'react-dom';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
-import Button from 'material-ui/Button';
+import { BasicInfo } from './basic-info/basic-info';
 
 const App = () => {
   return (
     <div className="test">
-      <Button>Test</Button>
-      <p>Hello world!</p>
+      <BasicInfo/>
     </div>
   );
 };
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
