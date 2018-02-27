@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
+    "target": "es2017",
+    "module": "commonjs",
     "baseUrl": "src",
     "sourceMap": true,
     "outDir": "ts-build",
     "jsx": "preserve",
     "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": [
+      "material-ui"
+    ]
   },
   "exclude": [
     "node_modules"
