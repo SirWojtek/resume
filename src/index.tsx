@@ -1,7 +1,7 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 
-import { BasicInfo } from './basic-info/basic-info';
+import BasicInfo from './basic-info/basic-info';
 import { Education } from './education/education';
 import { Languages } from './languages/languages';
 import { Projects } from './projects/projects';
