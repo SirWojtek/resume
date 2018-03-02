@@ -19,6 +19,7 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     inline: true,
+    hot: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -56,6 +57,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin(),
     new HtmlWebpackIncludeAssetsPlugin({
       assets: [
