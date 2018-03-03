@@ -1,6 +1,8 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import BasicInfo from './basic-info/basic-info';
 import { Education } from './education/education';
 import { Languages } from './languages/languages';
@@ -10,7 +12,7 @@ import { WorkExperience } from './work-experience/work-experience';
 
 const App = () => {
   return (
-    <div className="app-container">
+    <MuiThemeProvider>
       <div className="p-16">
         <BasicInfo/>
       </div>
@@ -29,7 +31,7 @@ const App = () => {
       <div className="p-16">
         <WorkExperience/>
       </div>
-    </div>
+    </MuiThemeProvider>
   );
 };
 

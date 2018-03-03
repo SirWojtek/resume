@@ -3,7 +3,8 @@ import * as React from 'react';
 import Card, { CardHeader } from 'material-ui/Card';
 import CardContent from 'material-ui/Card';
 
-import { StyleRulesCallback, withStyles, WithStyles, StyleRules } from 'material-ui/styles';
+import withStyles from 'material-ui/styles/withStyles';
+import { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
 
 type ClassNames = 'cardContent';
 
