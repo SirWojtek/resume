@@ -9,10 +9,7 @@
     "jsx": "preserve",
     "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
-    "types": [
-      "material-ui"
-    ]
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules"
