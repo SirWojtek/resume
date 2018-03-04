@@ -1,7 +1,8 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { blue, pink } from 'material-ui/colors';
 
 import BasicInfo from './basic-info/basic-info';
 import { Education } from './education/education';
@@ -10,9 +11,16 @@ import { Projects } from './projects/projects';
 import { TechnicalSkills } from './technical-skills/technical-skills';
 import { WorkExperience } from './work-experience/work-experience';
 
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+    secondary: pink
+  }
+});
+
 const App = () => {
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
       <div className="p-16">
         <BasicInfo/>
       </div>
