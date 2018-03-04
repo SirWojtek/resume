@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRootPlugin = require('html-webpack-react-root-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -72,5 +73,8 @@ module.exports = {
       filename: '[name].bundle.css',
       allChunks: true,
     }),
+    new CopyWebpackPlugin([
+      { from: 'src/assets', to: 'assets' }
+    ]),
   ]
 };
