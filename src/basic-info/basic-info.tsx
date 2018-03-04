@@ -1,16 +1,14 @@
 import * as React from 'react';
 
-import Card, { CardHeader } from 'material-ui/Card';
-import CardContent from 'material-ui/Card';
-
-import withStyles from 'material-ui/styles/withStyles';
-import { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
+import { Avatar, Card, GridList, GridListTile } from 'material-ui';
+import { CardHeader, CardContent } from 'material-ui/Card';
+import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
 
 type ClassNames = 'cardContent';
 
 const styles: StyleRulesCallback<ClassNames> = theme => ({
   cardContent: {
-    height: 300,
+    minWidth: 400
   }
 });
 
@@ -21,7 +19,13 @@ class BasicInfo extends React.Component<WithStyles<ClassNames>> {
       <Card>
         <CardHeader title="Basic Informations"></CardHeader>
         <CardContent className={props.classes.cardContent}>
-          Basic information content
+          <GridList cellHeight={200} cols={3}>
+            <GridListTile cols={1}>
+              <Avatar alt="Mateusz Okulewicz" src="assets/images/avatar.jpg" />
+            </GridListTile>
+            <GridListTile cols={2}>
+            </GridListTile>
+          </GridList>
         </CardContent>
       </Card>
     );
