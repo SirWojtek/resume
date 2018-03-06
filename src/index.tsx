@@ -44,10 +44,10 @@ class App extends React.Component<WithStyles<ClassNames>> {
       <MuiThemeProvider theme={theme}>
         <div className={props.classes.container}>
           <Grid container className={props.classes.grid}>
-            <Grid item md={3}>
-              <Image/>
+            <Grid item md={4}>
+              <Image data={model.basic}/>
             </Grid>
-            <Grid item md={9}>
+            <Grid item md={8}>
               <InfoTabs contact={model.contact} websites={model.websites}/>
             </Grid>
             <Grid item md={12}>

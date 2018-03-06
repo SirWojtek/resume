@@ -1,17 +1,20 @@
 import * as React from 'react';
 
 import {
-  Avatar, Card
+  Avatar, Card, Typography
 } from 'material-ui';
 import { CardContent } from 'material-ui/Card';
 import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+
+import { IBasicData } from '../model/types';
 
 type ClassNames = 'avatar' | 'cardContent';
 
 const styles: StyleRulesCallback<ClassNames> = theme => ({
   cardContent: {
     display: 'flex',
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   avatar: {
     width: 128,
@@ -19,7 +22,15 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   }
 });
 
-class Image extends React.Component<WithStyles<ClassNames>> {
+interface IProps {
+  data: IBasicData;
+}
+
+class Image extends React.Component<IProps & WithStyles<ClassNames>> {
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     const props = this.props;
 
@@ -27,12 +38,15 @@ class Image extends React.Component<WithStyles<ClassNames>> {
       <Card>
         <CardContent className={props.classes.cardContent}>
           <Avatar className={props.classes.avatar}
-            alt="Mateusz Okulewicz"
+            alt={props.data.name}
             src="assets/images/avatar.jpg" />
+          <Typography variant="headline">{props.data.name}</Typography>
+          <Typography variant="title">{props.data.title}</Typography>
+          <Typography variant="subheading">{props.data.subtitle}</Typography>
         </CardContent>
       </Card>
     );
   }
 }
 
-export default withStyles(styles)<{}>(Image);
+export default withStyles(styles)<IProps>(Image);
