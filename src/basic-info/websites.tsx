@@ -1,6 +1,16 @@
 import * as React from 'react';
 
-export default class Websites extends React.Component {
+import { IWebsites } from '../model/types';
+
+interface IProps {
+  websites: IWebsites;
+}
+
+export default class Websites extends React.Component<IProps> {
+  constructor(props: IProps) {
+    super(props);
+  }
+
   render() {
     return 'Websites';
   }

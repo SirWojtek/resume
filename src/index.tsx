@@ -6,6 +6,8 @@ import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
 import { blue, pink } from 'material-ui/colors';
 import { Grid } from 'material-ui';
 
+import { model } from './model/model';
+
 import Image from './basic-info/image';
 import InfoTabs from './basic-info/info-tabs';
 import { Education } from './education/education';
@@ -33,9 +35,11 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   }
 });
 
+
 class App extends React.Component<WithStyles<ClassNames>> {
   render() {
     const props = this.props;
+
     return (
       <MuiThemeProvider theme={theme}>
         <div className={props.classes.container}>
@@ -44,7 +48,7 @@ class App extends React.Component<WithStyles<ClassNames>> {
               <Image/>
             </Grid>
             <Grid item md={9}>
-              <InfoTabs/>
+              <InfoTabs contact={model.contact} websites={model.websites}/>
             </Grid>
             <Grid item md={12}>
               <Education/>
