@@ -41,7 +41,7 @@ class Image extends React.Component<IProps & WithStyles<ClassNames>> {
             alt={props.data.name}
             src="assets/images/avatar.jpg" />
           <Typography variant="headline">{props.data.name}</Typography>
-          <Typography variant="title">{props.data.title}</Typography>
+          <Typography gutterBottom variant="title">{props.data.title}</Typography>
           <Typography variant="subheading">{props.data.subtitle}</Typography>
         </CardContent>
       </Card>
