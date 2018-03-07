@@ -7,8 +7,6 @@
     "sourceMap": true,
     "outDir": "ts-build",
     "jsx": "preserve",
-    "strict": true,
-    "noImplicitAny": true,
     "strictNullChecks": true
   },
   "exclude": [
