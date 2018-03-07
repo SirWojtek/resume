@@ -43,22 +43,20 @@ class Informations extends React.Component<IProps & WithStyles<ClassNames>> {
     const props = this.props;
 
     return (
-      <div>
-        <List>
-          <ListItem>
-            <Avatar className={props.classes.phoneAvatar}>
-              <Icon className={props.classes.phoneIcon}>phone_android</Icon>
-            </Avatar>
-            <ListItemText primary="Phone" secondary={props.contact.phoneNumber}/>
-          </ListItem>
-          <ListItem>
-            <Avatar className={props.classes.emailAvatar}>
-              <Icon className={props.classes.emailIcon}>email</Icon>
-            </Avatar>
-            <ListItemText primary="Email" secondary={props.contact.email}/>
-          </ListItem>
-      </List>
-      </div>
+      <List>
+        <ListItem>
+          <Avatar className={props.classes.phoneAvatar}>
+            <Icon className={props.classes.phoneIcon}>phone_android</Icon>
+          </Avatar>
+          <ListItemText primary="Phone" secondary={props.contact.phoneNumber}/>
+        </ListItem>
+        <ListItem>
+          <Avatar className={props.classes.emailAvatar}>
+            <Icon className={props.classes.emailIcon}>email</Icon>
+          </Avatar>
+          <ListItemText primary="Email" secondary={props.contact.email}/>
+        </ListItem>
+    </List>
     );
   }
 }
