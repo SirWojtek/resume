@@ -8,9 +8,15 @@ import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
 
 import { IBasicData } from '../model/types';
 
-type ClassNames = 'avatar' | 'cardContent';
+type ClassNames = 'avatar' | 'card' | 'cardContent';
 
 const styles: StyleRulesCallback<ClassNames> = theme => ({
+  card: {
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   cardContent: {
     display: 'flex',
     alignItems: 'center',
@@ -35,7 +41,7 @@ class Image extends React.Component<IProps & WithStyles<ClassNames>> {
     const props = this.props;
 
     return (
-      <Card>
+      <Card className={props.classes.card}>
         <CardContent className={props.classes.cardContent}>
           <Avatar className={props.classes.avatar}
             alt={props.data.name}

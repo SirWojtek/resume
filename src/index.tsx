@@ -23,7 +23,7 @@ const theme = createMuiTheme({
   }
 });
 
-type ClassNames = 'grid' | 'container';
+type ClassNames = 'grid' | 'container' | 'imageItem' | 'infoItem';
 
 const styles: StyleRulesCallback<ClassNames> = theme => ({
   container: {
@@ -32,6 +32,12 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   },
   grid: {
     maxWidth: theme.breakpoints.values.md,
+  },
+  imageItem: {
+    height: '350px',
+  },
+  infoItem: {
+    height: '350px',
   }
 });
 
@@ -44,10 +50,10 @@ class App extends React.Component<WithStyles<ClassNames>> {
       <MuiThemeProvider theme={theme}>
         <div className={props.classes.container}>
           <Grid container className={props.classes.grid}>
-            <Grid item md={4}>
+            <Grid item md={4} className={props.classes.imageItem}>
               <Image data={model.basic}/>
             </Grid>
-            <Grid item md={8}>
+            <Grid item md={8} className={props.classes.infoItem}>
               <InfoTabs contact={model.contact} websites={model.websites}/>
             </Grid>
             <Grid item md={12}>

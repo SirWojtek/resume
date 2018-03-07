@@ -4,24 +4,32 @@ import {
   AppBar, Paper, Tabs, Tab
 } from 'material-ui';
 import { CardContent } from 'material-ui/Card';
-import { withStyles, StyleRulesCallback } from 'material-ui/styles';
+import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
 
 import { IContactInfo, IWebsites } from '../model/types';
 
 import Informations from './informations';
 import Websites from './websites';
 
+type ClassNames = 'paper';
+
+const styles: StyleRulesCallback<ClassNames> = theme => ({
+  paper: {
+    height: '100%',
+  },
+});
+
 interface IProps {
   contact: IContactInfo;
   websites: IWebsites;
 }
 
-export default class InfoTabs extends React.Component<IProps> {
+class InfoTabs extends React.Component<IProps & WithStyles<ClassNames>> {
   state = {
     currentTab: 0,
   };
 
-  constructor(props: IProps) {
+  constructor(props: any) {
     super(props);
   }
 
@@ -31,9 +39,10 @@ export default class InfoTabs extends React.Component<IProps> {
 
   render() {
     const state = this.state;
+    const props = this.props;
 
     return (
-      <Paper>
+      <Paper className={props.classes.paper}>
         <AppBar position="static">
           <Tabs
             value={state.currentTab} onChange={this.handleChange}>
@@ -47,4 +56,6 @@ export default class InfoTabs extends React.Component<IProps> {
     );
   }
 }
+
+export default withStyles(styles)<IProps>(InfoTabs);
 
