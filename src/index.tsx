@@ -14,7 +14,7 @@ import { Education } from './education/education';
 import { Languages } from './languages/languages';
 import { Projects } from './projects/projects';
 import { TechnicalSkills } from './technical-skills/technical-skills';
-import { WorkExperience } from './work-experience/work-experience';
+import WorkExperience from './work-experience/work-experience';
 
 const theme = createMuiTheme({
   palette: {

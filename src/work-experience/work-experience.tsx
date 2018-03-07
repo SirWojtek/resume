@@ -1,33 +1,59 @@
 import * as React from 'react';
-import { Paper, Icon } from 'material-ui';
+import { Paper, Icon, Typography } from 'material-ui';
+import {
+  WithTheme, withStyles, WithStyles, StyleRulesCallback
+} from 'material-ui/styles';
 import * as timeline  from 'react-event-timeline';
 
 const Timeline = timeline.Timeline;
 const TimelineEvent = timeline.TimelineEvent;
 
-export class WorkExperience extends React.Component {
+type ClassNames = 'icon';
+
+const styles: StyleRulesCallback<ClassNames> = theme => ({
+  icon: {
+    fontSize: 32,
+  }
+});
+
+class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames>> {
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
+    const theme = this.props.theme;
+    const classes = this.props.classes;
+    const cardHeaderStyles = {
+      backgroundColor: theme.palette.primary.main
+    };
+    const bubbleStyles = {
+      width: 64,
+      height: 64
+    };
+
     return (
       <Paper>
-    <Timeline>
-            <TimelineEvent title="John Doe sent a SMS"
-                           createdAt="2016-09-12 10:06 PM"
-                           container="card"
-                           icon={<i className="material-icons md-18">textsms</i>}
-            >
+        <Timeline>
+          <TimelineEvent
+            title={this.getTitle("John Doe sent a SMS", new Date())}
+            container="card" cardHeaderStyle={cardHeaderStyles}
+            bubbleStyle={bubbleStyles}
+            icon={<Icon className={classes.icon}>textsms</Icon>}>
+              <Typography>
                 I received the payment for $543. Should be shipping the item within a couple of hours.
-            </TimelineEvent>
-            <TimelineEvent
-                title="You sent an email to John Doe"
-                createdAt="2016-09-11 09:06 AM"
-                icon={<i className="material-icons md-18">email</i>}
-            >
-                Like we talked, you said that you would share the shipment details? This is an urgent order and so I
-                    am losing patience. Can you expedite the process and pls do share the details asap. Consider this a
-                    gentle reminder if you are on track already!
-            </TimelineEvent>
-    </Timeline>
+              </Typography>
+          </TimelineEvent>
+        </Timeline>
       </Paper>
     );
   }
+
+  getTitle(text: string, date: Date) {
+    return (
+      <Typography variant="subheading" color="inherit">{date.toDateString()} - {text}</Typography>
+    );
+  }
 }
+
+export default withStyles(styles, { withTheme: true })<{}>(WorkExperience);
