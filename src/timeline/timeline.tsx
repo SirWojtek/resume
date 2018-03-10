@@ -5,7 +5,7 @@ import {
   WithTheme, withStyles, WithStyles, StyleRulesCallback
 } from 'material-ui/styles';
 
-type ClassNames = 'container' | 'iconGrid';
+type ClassNames = 'container' | 'iconGrid' | 'iconContainer' | 'line';
 
 const styles: StyleRulesCallback<ClassNames> = theme => ({
   container: {
@@ -14,13 +14,24 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
     display: 'flex',
   },
   iconGrid: {
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  iconContainer: {
+    zIndex: 0,
+  },
+  line: {
+    position: 'absolute',
+    left: 'calc(50% - 1px)',
+    width: '2px',
+    height: '100%',
+    backgroundColor: theme.palette.primary.main,
   }
 });
 
-interface Event {
+export interface IEvent {
   time: Date;
   title: string;
   description: string | JSX.Element;
@@ -28,12 +39,13 @@ interface Event {
 }
 
 interface IProps {
-  events: Event[];
+  events: IEvent[];
 };
 
 class Timeline extends React.Component<IProps & WithStyles<ClassNames>> {
   constructor(props: any) {
     super(props);
+
   }
 
   render() {
@@ -53,7 +65,10 @@ class Timeline extends React.Component<IProps & WithStyles<ClassNames>> {
           { i % 2 === 0 && this.getTimelineElement(event) }
         </Grid>,
         <Grid item xs={2} key={'icon-' + i} className={classes.iconGrid}>
-          { event.icon }
+          <div className={classes.line}/>
+          <div className={classes.iconContainer}>
+            { event.icon }
+          </div>
         </Grid>,
         <Grid item xs={5} key={'right-' + i}>
           { i % 2 !== 0 && this.getTimelineElement(event) }
@@ -61,7 +76,7 @@ class Timeline extends React.Component<IProps & WithStyles<ClassNames>> {
     ])).reduce((res, grid) => res = [ ...res, ...grid ], []);
   }
 
-  private getTimelineElement(event: Event): JSX.Element {
+  private getTimelineElement(event: IEvent): JSX.Element {
     return (
       <Card>
         <CardHeader title={event.title}/>
