@@ -57,9 +57,9 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
 });
 
 export interface IEvent {
-  time: Date;
+  time: Date | string;
   title: string;
-  description: string | JSX.Element;
+  description: string[] | JSX.Element;
   icon: JSX.Element;
 }
 

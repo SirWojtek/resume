@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Avatar, Card, Icon, Typography } from 'material-ui';
-import { CardContent } from 'material-ui/Card';
+import { CardHeader, CardContent } from 'material-ui/Card';
 import {
   WithTheme, withStyles, WithStyles, StyleRulesCallback
 } from 'material-ui/styles';
 import { green, pink } from 'material-ui/colors';
+
+import { IWorkExperienceItem } from '../model/types';
 
 import Timeline, { IEvent } from '../timeline/timeline';
 
@@ -21,48 +23,32 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   }
 });
 
+interface IProps {
+  workExperience: IWorkExperienceItem[];
+}
 
-class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames>> {
+
+class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames> & IProps> {
   events: IEvent[];
 
   constructor(props: any) {
     super(props);
 
-    this.events = [
-      {
-        time: new Date(),
-        title: 'New event',
-        description: 'Super description',
-        icon:
+    this.events = this.props.workExperience.map(item => ({
+      time: item.startDate + ' - ' + item.endDate,
+      title: item.companyName + ' - ' + item.position,
+      description: item.description,
+      icon:
           <Avatar className={this.props.classes.avatar}>
             <Icon className={this.props.classes.icon}>work</Icon>
           </Avatar>
-      },
-      {
-        time: new Date(),
-        title: 'New event 2',
-        description: 'Super description 87',
-        icon:
-          <Avatar className={this.props.classes.avatar}>
-            <Icon className={this.props.classes.icon}>work</Icon>
-          </Avatar>
-      },
-      {
-        time: new Date(),
-        title: 'New event 2',
-        description: 'Super description 87',
-        icon:
-          <Avatar className={this.props.classes.avatar}>
-            <Icon className={this.props.classes.icon}>work</Icon>
-          </Avatar>
-      },
-    ];
-
+    }));
   }
 
   render() {
     return (
       <Card>
+        <CardHeader title="Work Experience"/>
         <CardContent>
           <Timeline events={this.events}/>
         </CardContent>
@@ -71,4 +57,4 @@ class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames>>
   }
 }
 
-export default withStyles(styles)<{}>(WorkExperience);
+export default withStyles(styles)<IProps>(WorkExperience);

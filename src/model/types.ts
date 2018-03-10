@@ -3,6 +3,7 @@ export interface IBasicInfo {
   basic: IBasicData;
   contact: IContactInfo;
   websites: IWebsites;
+  workExperience: IWorkExperienceItem[];
 }
 
 export interface IBasicData {
@@ -20,4 +21,13 @@ export interface IWebsites {
   linkedIn: string;
   github: string;
   stackOverflow: string;
+}
+
+export interface IWorkExperienceItem {
+  companyName: string;
+  companyLogoUrl: string;
+  position: string;
+  startDate: Date;
+  endDate: Date | string;
+  description: string[];
 }
