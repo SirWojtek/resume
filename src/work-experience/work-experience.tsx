@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Avatar, Card, Icon, Typography } from 'material-ui';
-import { CardHeader, CardContent } from 'material-ui/Card';
 import {
+  Avatar, Card, Icon, Typography,
+  CardHeader, CardContent,
   WithTheme, withStyles, WithStyles, StyleRulesCallback
-} from 'material-ui/styles';
-import { green, pink } from 'material-ui/colors';
+} from '@material-ui/core';
+import { green, pink } from '@material-ui/core/colors';
 
 import { IWorkExperienceItem } from '../model/types';
 
-import Timeline, { IEvent } from '../timeline/timeline';
+import { Timeline, IEvent } from 'react-material-timeline';
 
 type ClassNames = 'avatar' | 'icon';
 

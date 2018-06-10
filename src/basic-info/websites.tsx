@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Avatar, Icon, List } from 'material-ui';
-import { ListItem, ListItemText } from 'material-ui/List';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+import {
+  Avatar, Icon, List,
+  ListItem, ListItemText,
+  withStyles, WithStyles, StyleRulesCallback
+} from '@material-ui/core';
 
 import { IWebsites } from '../model/types';
 

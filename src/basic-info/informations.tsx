@@ -1,10 +1,12 @@
 import * as React from 'react';
 
-import { Avatar, Icon, List } from 'material-ui';
-import { ListItem, ListItemText } from 'material-ui/List';
-import PhoneAndroid from 'material-ui-icons/PhoneAndroid';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
-import { green, pink } from 'material-ui/colors';
+import {
+  Avatar, Icon, List,
+  ListItem, ListItemText,
+  withStyles, WithStyles, StyleRulesCallback
+} from '@material-ui/core';
+import { PhoneAndroid }from '@material-ui/icons';
+import { green, pink } from '@material-ui/core/colors';
 
 import { IContactInfo } from '../model/types';
 

@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import Card from 'material-ui/Card';
+import {
+  Card
+} from '@material-ui/core';
 
 export class TechnicalSkills extends React.Component {
   render() {

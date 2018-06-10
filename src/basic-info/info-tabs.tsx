@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {
-  AppBar, Paper, Tabs, Tab
-} from 'material-ui';
-import { CardContent } from 'material-ui/Card';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+  AppBar, Paper, Tabs, Tab,
+  CardContent,
+  withStyles, WithStyles, StyleRulesCallback
+} from '@material-ui/core';
 
 import { IContactInfo, IWebsites } from '../model/types';
 

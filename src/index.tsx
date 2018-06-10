@@ -1,10 +1,15 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
-import { blue, pink } from 'material-ui/colors';
-import { Grid } from 'material-ui';
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  Grid,
+  withStyles,
+  WithStyles,
+  StyleRulesCallback
+} from '@material-ui/core';
+import { blue, pink } from '@material-ui/core/colors';
 
 import { model } from './model/model';
 

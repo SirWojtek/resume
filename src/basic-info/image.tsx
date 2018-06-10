@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {
-  Avatar, Card, Typography
-} from 'material-ui';
-import { CardContent } from 'material-ui/Card';
-import { withStyles, WithStyles, StyleRulesCallback } from 'material-ui/styles';
+  Avatar, Card, Typography,
+  CardContent,
+  withStyles, WithStyles, StyleRulesCallback
+} from '@material-ui/core';
 
 import { IBasicData } from '../model/types';
 
