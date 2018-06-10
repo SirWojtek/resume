@@ -15,7 +15,7 @@ import { model } from './model/model';
 
 import Image from './basic-info/image';
 import InfoTabs from './basic-info/info-tabs';
-import { Education } from './education/education';
+import Education from './education/education';
 import Languages from './languages/languages';
 import { Projects } from './projects/projects';
 import { TechnicalSkills } from './technical-skills/technical-skills';
