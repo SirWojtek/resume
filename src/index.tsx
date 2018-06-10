@@ -54,7 +54,7 @@ class App extends React.Component<WithStyles<ClassNames>> {
     return (
       <MuiThemeProvider theme={theme}>
         <div className={props.classes.container}>
-          <Grid container className={props.classes.grid}>
+          <Grid container className={props.classes.grid} spacing={16}>
             <Grid item md={4} className={props.classes.imageItem}>
               <Image data={model.basic}/>
             </Grid>
