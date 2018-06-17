@@ -16,7 +16,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   avatar: {
     width: 64,
     height: 64,
-    backgroundColor: green[500]
+    backgroundColor: theme.palette.primary.main,
   },
   icon: {
     fontSize: 32,

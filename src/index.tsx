@@ -71,7 +71,7 @@ class App extends React.Component<WithStyles<ClassNames>> {
               <Projects/>
             </Grid>
             <Grid item md={12}>
-              <TechnicalSkills/>
+              <TechnicalSkills technicalSkills={model.technicalSkills}/>
             </Grid>
             <Grid item md={12}>
               <WorkExperience workExperience={model.workExperience}/>

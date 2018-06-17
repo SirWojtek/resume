@@ -4,6 +4,7 @@ export interface IBasicInfo {
   contact: IContactInfo;
   websites: IWebsites;
   workExperience: IWorkExperienceItem[];
+  technicalSkills: TechnicalSkillsMap;
 }
 
 export interface IBasicData {
@@ -31,3 +32,11 @@ export interface IWorkExperienceItem {
   endDate: Date | string;
   description: string[];
 }
+
+export interface ITechnicalSkill {
+  name: string;
+  description?: string;
+  level: number;  // 1 - 10
+}
+
+export type TechnicalSkillsMap = { [category: string]: ITechnicalSkill[] };
