@@ -39,4 +39,9 @@ export interface ITechnicalSkill {
   level: number;  // 1 - 10
 }
 
-export type TechnicalSkillsMap = { [category: string]: ITechnicalSkill[] };
+export interface ITechnicalSkillGroup {
+  logo: string;
+  skills: ITechnicalSkill[];
+}
+
+export type TechnicalSkillsMap = { [category: string]: ITechnicalSkillGroup };

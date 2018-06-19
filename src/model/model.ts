@@ -93,90 +93,76 @@ export const model: IBasicInfo = {
     },
   ],
   technicalSkills: {
-    'Web Frontend': [
-      {
-        name: 'Angular',
-        description: 'known also as Angular 2, Angular 4/5/6',
-        level: 8
-      },
-      {
-        name: 'Typescript',
-        level: 8
-      },
-      {
-        name: 'Javascript',
-        level: 7
-      },
-      {
-        name: 'Material',
-        description: 'design and frontend frameworks',
-        level: 7
-      },
-      {
-        name: 'Bootstrap',
-        description: 'worked with version 3',
-        level: 7
-      },
-      {
-        name: 'CSS3/LESS/SASS',
-        level: 7
-      },
-      {
-        name: 'HTML5',
-        level: 7
-      },
-      {
-        name: 'Angular.js',
-        level: 6
-      },
-      {
-        name: 'React',
-        level: 4
-      },
-    ],
-    'Web Backend': [
-      {
-        name: 'Node.js',
-        level: 7
-      },
-      {
-        name: 'Sequelize',
-        description: 'Node.js ORM client',
-        level: 7
-      },
-      {
-        name: 'SQL',
-        description: 'PostgreSQL, MySQL, SQLite',
-        level: 6
-      },
-      {
-        name: 'AWS Cloud',
-        level: 6
-      },
-      {
-        name: 'Spring Framework',
-        level: 5
-      },
-      {
-        name: 'GraphQL',
-        description: 'with Node.js',
-        level: 5
-      },
-      {
-        name: 'Django',
-        level: 4
-      },
-    ],
-    'Communication': [
-    ],
-    'Testing': [
-    ],
-    'Tools': [
-    ],
-    'Workflow': [
-    ],
-    'Other': [
-    ]
+    'Web Frontend': {
+      logo: 'web',
+      skills: [
+        {
+          name: 'Angular',
+          description: 'known also as Angular 2, Angular 4/5/6',
+          level: 8
+        },
+        { name: 'Typescript', level: 8 },
+        { name: 'Javascript', level: 7 },
+        {
+          name: 'Material',
+          description: 'design and frontend frameworks',
+          level: 7
+        },
+        {
+          name: 'Bootstrap',
+          description: 'worked with version 3',
+          level: 7
+        },
+        { name: 'CSS3/LESS/SASS', level: 7 },
+        { name: 'HTML5', level: 7 },
+        { name: 'Angular.js', level: 6 },
+        { name: 'React', level: 4 },
+      ],
+    },
+    'Web Backend': {
+      logo: 'dns',
+      skills: [
+        { name: 'Node.js', level: 7 },
+        {
+          name: 'Sequelize',
+          description: 'Node.js ORM client',
+          level: 7
+        },
+        {
+          name: 'SQL',
+          description: 'PostgreSQL, MySQL, SQLite',
+          level: 6
+        },
+        { name: 'AWS Cloud', level: 6 },
+        { name: 'Spring Framework', level: 5 },
+        {
+          name: 'GraphQL',
+          description: 'with Node.js',
+          level: 5
+        },
+        { name: 'Django', level: 4 },
+      ],
+    },
+    'Communication': {
+      logo: 'router',
+      skills: []
+    },
+    'Testing': {
+      logo: 'bug_report',
+      skills: []
+    },
+    'Tools': {
+      logo: 'settings',
+      skills: []
+    },
+    'Workflow': {
+      logo: 'business_center',
+      skills: []
+    },
+    'Other': {
+      logo: 'web',
+      skills: []
+    }
   }
 };
 

@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {
-  Card, AppBar, Tabs, Tab, Typography, Paper
+  Card, AppBar, Tabs, Tab, Typography, Paper, Icon
 } from '@material-ui/core';
 
-import { TechnicalSkillsMap, ITechnicalSkill } from "../model/types";
+import { TechnicalSkillsMap, ITechnicalSkill, ITechnicalSkillGroup } from "../model/types";
 
 interface IProps {
   technicalSkills: TechnicalSkillsMap;
@@ -29,7 +29,9 @@ export class TechnicalSkills extends React.Component<IProps> {
     };
 
     this.tabs = keys.map(key =>
-      <Tab label={key} value={key} key={`tab-${key}`}/>
+      <Tab label={key} value={key} key={`tab-${key}`}
+        icon={this.createTabIcon(this.props.technicalSkills[key])}
+      />
     );
   }
 
@@ -44,7 +46,8 @@ export class TechnicalSkills extends React.Component<IProps> {
             { this.tabs }
           </Tabs>
         </AppBar>
-        { this.renderSkills(props.technicalSkills[state.currentTab]) }
+        { this.renderSkills(
+          props.technicalSkills[state.currentTab].skills) }
       </Paper>
     );
   }
@@ -58,6 +61,12 @@ export class TechnicalSkills extends React.Component<IProps> {
       <Typography variant="body1" key={`name-${skill.name}`}>
         { skill.name }
       </Typography>
+    );
+  }
+
+  private createTabIcon(skillsGroup: ITechnicalSkillGroup): JSX.Element {
+    return (
+      <Icon>{ skillsGroup.logo }</Icon>
     );
   }
 }
