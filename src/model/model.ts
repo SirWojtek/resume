@@ -145,24 +145,66 @@ export const model: IBasicInfo = {
     },
     'Communication': {
       logo: 'router',
-      skills: []
+      skills: [
+        { name: 'TCP/IP', level: 8 },
+        { name: 'HTTP', level: 7 },
+        {
+          name: 'MQTT',
+          description: 'with mosquitto library',
+          level: 7
+        },
+        {
+          name: 'protobuf',
+          description: '+ grpc',
+          level: 6
+        },
+      ]
     },
     'Testing': {
       logo: 'bug_report',
-      skills: []
+      skills: [
+        {
+          name: 'karma + jasmine',
+          description: 'frontend unit testing frameworks',
+          level: 8
+        },
+        {
+          name: 'protractor + jasmine',
+          description: 'frontend e2e testing frameworks',
+          level: 7
+        },
+        {
+          name: 'gtest + gmock',
+          description: 'C++ testing libraries',
+          level: 7
+        },
+        {
+          name: 'pyTest',
+          description: 'python test runner',
+          level: 6
+        },
+      ]
     },
     'Tools': {
       logo: 'settings',
-      skills: []
+      skills: [
+        { name: 'Linux/bash', level: 9 },
+        { name: 'git', level: 9 },
+        { name: 'docker', level: 7 },
+        { name: 'python', level: 7 },
+      ]
     },
     'Workflow': {
       logo: 'business_center',
-      skills: []
+      skills: [
+        { name: 'Scrum', level: 8 },
+        { name: 'GitHub', level: 7 },
+        { name: 'Jira', level: 7 },
+        { name: 'Confluence', level: 7 },
+        { name: 'Trello', level: 6 },
+        { name: 'Clubhouse', level: 6 },
+      ]
     },
-    'Other': {
-      logo: 'web',
-      skills: []
-    }
   }
 };
 
