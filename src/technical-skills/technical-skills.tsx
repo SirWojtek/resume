@@ -1,16 +1,21 @@
 import * as React from 'react';
 
 import {
-  Card, AppBar, Tabs, Tab, Typography, Paper, Icon
+  Card, AppBar, Tabs, Tab, Typography, Paper, Icon, Grid, LinearProgress, StyleRulesCallback, WithStyles, withStyles, Tooltip
 } from '@material-ui/core';
-
 import { TechnicalSkillsMap, ITechnicalSkill, ITechnicalSkillGroup } from "../model/types";
+
+type ClassNames = 'tabPaper';
+
+const styles: StyleRulesCallback<ClassNames> = theme => ({
+  tabPaper: theme.mixins.gutters({ padding: 16 }),
+});
 
 interface IProps {
   technicalSkills: TechnicalSkillsMap;
 }
 
-export class TechnicalSkills extends React.Component<IProps> {
+class TechnicalSkills extends React.Component<IProps & WithStyles<ClassNames>> {
   state: {
     currentTab: string
   };
@@ -57,11 +62,38 @@ export class TechnicalSkills extends React.Component<IProps> {
   };
 
   private renderSkills = (skills: ITechnicalSkill[]) => {
-    return skills.map(skill =>
-      <Typography variant="body1" key={`name-${skill.name}`}>
-        { skill.name }
-      </Typography>
+    const classes = this.props.classes;
+
+    const skillsGrid = skills.map(skill => [
+      <Grid item xs={2} key={`skill-name-${skill.name}`}>
+        { this.renderSkillName(skill) }
+      </Grid>,
+      <Grid item xs={4} key={`skill-level-${skill.level}`}>
+        <LinearProgress
+          variant="determinate"
+          value={skill.level * 10}
+        />
+      </Grid>
+    ]);
+
+    return (
+      <Paper className={classes.tabPaper}>
+        <Grid container alignItems="center" spacing={16}>
+          { skillsGrid }
+        </Grid>
+      </Paper>
     );
+  }
+
+  private renderSkillName(skill: ITechnicalSkill): JSX.Element {
+    const text =
+      <Typography variant="body2" align="right">{ skill.name }</Typography>;
+
+    return skill.description ? (
+      <Tooltip title={skill.description} placement="right">
+        { text }
+      </Tooltip>
+    ) : text;
   }
 
   private createTabIcon(skillsGroup: ITechnicalSkillGroup): JSX.Element {
@@ -70,3 +102,5 @@ export class TechnicalSkills extends React.Component<IProps> {
     );
   }
 }
+
+export default withStyles(styles)<IProps>(TechnicalSkills);

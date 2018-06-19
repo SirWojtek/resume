@@ -17,8 +17,8 @@ import Image from './basic-info/image';
 import InfoTabs from './basic-info/info-tabs';
 import Education from './education/education';
 import Languages from './languages/languages';
+import TechnicalSkills from './technical-skills/technical-skills';
 import { Projects } from './projects/projects';
-import { TechnicalSkills } from './technical-skills/technical-skills';
 import WorkExperience from './work-experience/work-experience';
 
 const theme = createMuiTheme({
