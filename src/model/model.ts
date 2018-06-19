@@ -22,7 +22,6 @@ export const model: IBasicInfo = {
       companyLogoUrl: 'assets/images/citrus.svg',
       position: 'Software Engineer',
       startDate: new Date(2017, 8),
-      endDate: 'Present',
       description: [
       `
         The system helps to connect online retailers with product manufacturers. As an

@@ -1,8 +1,9 @@
 import * as React from 'react';
+import moment from 'moment-es6';
 import {
   Avatar, Card, Icon, Typography,
   CardHeader, CardContent,
-  WithTheme, withStyles, WithStyles, StyleRulesCallback
+  WithTheme, withStyles, WithStyles, StyleRulesCallback, Paper
 } from '@material-ui/core';
 import { green, pink } from '@material-ui/core/colors';
 
@@ -35,9 +36,15 @@ class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames> 
     super(props);
 
     this.events = this.props.workExperience.map(item => ({
-      time: item.startDate + ' - ' + item.endDate,
-      title: item.companyName + ' - ' + item.position,
-      description: item.description,
+      title:
+        <Typography variant="title">
+          { item.companyName + ' - ' + item.position }
+        </Typography>,
+      subheader:
+        <Typography variant="subheading">
+          { this.getEventDates(item) }
+        </Typography>,
+      description: <Paper elevation={0}>{ this.createDescription(item) }</Paper>,
       icon:
           <Avatar className={this.props.classes.avatar}>
             <Icon className={this.props.classes.icon}>work</Icon>
@@ -48,12 +55,28 @@ class WorkExperience extends React.Component<WithTheme & WithStyles<ClassNames> 
   render() {
     return (
       <Card>
-        <CardHeader title="Work Experience"/>
+        <CardHeader subheader="Work Experience"/>
         <CardContent>
           <Timeline events={this.events}/>
         </CardContent>
       </Card>
     );
+  }
+
+  private getEventDates(item: IWorkExperienceItem): string {
+    let endDate = 'Present';
+    if (item.endDate) { endDate = moment(item.endDate).format('MM/YYYY'); }
+    return `${moment(item.startDate).format('MM/YYYY')} - ${endDate}`;
+  }
+
+  private createDescription(item: IWorkExperienceItem): JSX.Element[] {
+    return item.description.map((desc, i) =>
+        <Typography
+          variant="body1"
+          gutterBottom
+          key={`desc-${item.companyName}-${item.position}-${i}`}
+        >{ desc }</Typography>
+      );
   }
 }
 

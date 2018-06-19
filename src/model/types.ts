@@ -29,7 +29,7 @@ export interface IWorkExperienceItem {
   companyLogoUrl: string;
   position: string;
   startDate: Date;
-  endDate: Date | string;
+  endDate?: Date;
   description: string[];
 }
 
